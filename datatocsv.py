@@ -5,7 +5,7 @@ import pandas as pd
 YOUR_DIRECTORY = '/content/drive/My Drive/Colab Notebooks/ATMS597/project5/'
 
 # Grab all files that have been reviewed (parsed) and make a large dataframe
-files = sorted(glob.glob(YOUR_DIRECTORY+'project5_data/reviewed/*.dat'))
+files = sorted(glob.glob(YOUR_DIRECTORY + 'project5_data/reviewed/*.dat'))
 df = pd.DataFrame()
 for file in files:
     df = df.append(pd.read_csv(file, index_col=0))
