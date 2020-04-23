@@ -20,7 +20,7 @@ for i in range(len(df)):
         df['Temperature'].iloc[i] = copy.deepcopy(df['Dewpoint'].iloc[i])
         df['Dewpoint'].iloc[i] = temp
         
-# Add another column to determine precip type (np.nan for days without, 0 for liquid, 1 for solid
+# Add another column to determine precip type (np.nan for days without, 0 for liquid, 1 for solid)
 prcp_type = np.zeros((len(df)))
 df['prcp_type'] = pd.Series(prcp_type, index=df.index)
 for i in range(len(df)):
@@ -30,9 +30,6 @@ for i in range(len(df)):
         df['prcp_type'].iloc[i] = 0
     else: # ELSE, NAN
         df['prcp_type'].iloc[i] = np.nan
-
-# Convert date to day of year        
-df['date'] = pd.to_datetime(df['date']).apply(lambda x: x.strftime('%j')) # Change date column to datetime
 
 # Save to CSV file
 df.to_csv(YOUR_DIRECTORY + 'data.csv')
