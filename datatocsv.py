@@ -20,15 +20,15 @@ for i in range(len(df)):
         df['Dewpoint'].iloc[i] = temp
         
 # Add another column to determine precip type (np.nan for days without, 0 for liquid, 1 for solid
-prcp_type = np.empty((0))
+prcp_type = np.zeros((len(df)))
 for i in range(len(df)):
     print(df.iloc[i])
     if df['solid'].iloc[i] > 0: # SOLID IS ONE
-        prcp_type = np.append(prcp_type, 1)
+        prcp_type[i] = 1
     elif data['liquid'].iloc[i] > 0: # LIQUID IS ZERO
-        prcp_type = np.append(prcp_type, 0)
-    else:
-        prcp_type = np.append(prcp_type, np.nan) # ELSE, NAN
+        prcp_type[i] = 0
+    else: # ELSE, NAN
+        prcp_type[i] = np.nan
     break
 df['prcp_type'] = pd.Series(prcp_type, index=df.index)
 
