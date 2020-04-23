@@ -1,7 +1,8 @@
 # Convert reviewed files into a big CSV file
 # Make sure to set working directory
-
 import pandas as pd
+from datetime import datetime
+
 YOUR_DIRECTORY = '/content/drive/My Drive/Colab Notebooks/ATMS597/project5/'
 
 # Grab all files that have been reviewed (parsed) and make a large dataframe
@@ -29,6 +30,9 @@ for i in range(len(df)):
         df['prcp_type'].iloc[i] = 0
     else: # ELSE, NAN
         df['prcp_type'].iloc[i] = np.nan
+
+# Convert date to day of year        
+df['date'] = pd.to_datetime(df['date']).apply(lambda x: x.strftime('%j')) # Change date column to datetime
 
 # Save to CSV file
 df.to_csv(YOUR_DIRECTORY + 'data.csv')
