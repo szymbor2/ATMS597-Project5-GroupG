@@ -1,6 +1,5 @@
 # Convert reviewed files into a big CSV file
 # Make sure to set working directory
-
 import pandas as pd
 YOUR_DIRECTORY = '/content/drive/My Drive/Colab Notebooks/ATMS597/project5/'
 
@@ -24,7 +23,7 @@ prcp_type = np.zeros((len(df)))
 for i in range(len(df)):
     if df['solid'].iloc[i] > 0: # SOLID IS ONE
         prcp_type[i] = 1
-    elif data['liquid'].iloc[i] > 0: # LIQUID IS ZERO
+    elif df['liquid'].iloc[i] > 0: # LIQUID IS ZERO
         prcp_type[i] = 0
     else: # ELSE, NAN
         prcp_type[i] = np.nan
