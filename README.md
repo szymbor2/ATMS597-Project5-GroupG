@@ -1,4 +1,5 @@
 ## ATMS Project 5 (Group G)
+### Arka Mitra, Sarah Szymborski, and Jeff Thayer
 
 This document details the procedure for using supervised classification techniques from the sklearn Python package to predict liquid and frozen precipitation types for St. Cloud, Minnesota (KSTC) over the period 2000 through 2019. The observational dataset from KSTC was separated into training and testing periods using a 70-30 split. Logistic Regression and Ensemble Random Forest were the models of choice, with the predictive ability of each model determined through Brier Skill Scores. Here are the main steps:
 
