@@ -22,7 +22,6 @@ for i in range(len(df)):
 # Add another column to determine precip type (np.nan for days without, 0 for liquid, 1 for solid
 prcp_type = np.zeros((len(df)))
 for i in range(len(df)):
-    print(df.iloc[i])
     if df['solid'].iloc[i] > 0: # SOLID IS ONE
         prcp_type[i] = 1
     elif data['liquid'].iloc[i] > 0: # LIQUID IS ZERO
